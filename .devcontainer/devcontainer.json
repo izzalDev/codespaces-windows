@@ -3,6 +3,9 @@
   "context": ".",
   "dockerFile": "Dockerfile",
   "forwardPorts": [9000],
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": { "version": "latest" }
+  },
   "postCreateCommand": "echo 'Setup completed. You can now start working in your container.'"
 }
 
