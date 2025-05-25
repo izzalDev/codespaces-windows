@@ -1,0 +1,17 @@
+{
+  "image": "debian:stable",
+  "forwardPorts": [9000],
+  "onCreateCommand": [
+    "echo \"TERM=xterm-256color\" >> ~/.bashrc",
+    "sudo apt update && sudo apt upgrade -y",
+    "sudo apt install neofetch xauth ninja-build gettext cmake unzip curl build-essential qemu qemu-system -y",
+    "git clone https://github.com/neovim/neovim",
+    "cd neovim",
+    "git checkout stable",
+    "make CMAKE_BUILD_TYPE=RelWithDebInfo",
+    "sudo make install",
+    "cd .. && rm -rf neovim",
+    "git clone https://github.com/izzalDev/NvChad.git ~/.config/nvim",
+    "nvim --headless \"+Lazy! sync\" +qa"
+  ]
+}
